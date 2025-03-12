@@ -1,16 +1,16 @@
 """Для запуска игры."""
+
 import pygame
 
-from config import clock, SPEED, screen
+from config import clock, screen, SPEED
 from game_control import handle_keys
 from objects_for_game import Apple, Snake
-
 
 pygame.init()
 
 
-def start_game() -> None:
-    """Функция, запускающая игру."""
+def start_and_play_game() -> None:
+    """Функция, запускающая игру со всей логикой."""
     apple: Apple = Apple()
     snake: Snake = Snake()
 
@@ -22,11 +22,8 @@ def start_game() -> None:
         handle_keys(snake)
         snake.update_direction()
         pygame.display.flip()
-
-        if snake.get_head_position() == apple.position:
-            snake.length += 1
-            apple = Apple()
+        snake.eating(apple)
 
 
 if __name__ == '__main__':
-    start_game()
+    start_and_play_game()
