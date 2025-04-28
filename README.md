@@ -54,7 +54,7 @@ pip install -r requirements.txt
 - Запустите игру:
 
 ```
-python main.py
+python src/main.py
 ```
 ___
 ### Управление.

@@ -2,8 +2,8 @@
 
 import pygame
 
-from config import Direction
-from protocol import SnakeP
+from app.config import Direction
+from app.protocol import SnakeP
 
 
 def handle_keys(snake: SnakeP):

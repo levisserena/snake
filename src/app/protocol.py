@@ -13,13 +13,30 @@ class SnakeP(Protocol):
     next_direction: tuple[int, int] | None
     """Новое направление движения Змейки."""
 
+    def get_head_position(self):
+        """Метод объекта класса Snake.
+
+        Возвращает позицию головы Змейки.
+        """
+        ...
+
+    def eating(self):
+        """Метод объекта класса Snake.
+
+        Увеличит длину змейки.
+        """
+        ...
+
 
 class AppleP(Protocol):
     """Протокол Яблоко для типизации."""
 
     position: tuple[int, int]
 
-    def randomize_position(self, snake: SnakeP | None = None) -> None:
+    def randomize_position(
+        self,
+        not_here: list[tuple[int, int]],
+    ) -> None:
         """
         Метод, определяющий координаты объекта Apple.
 

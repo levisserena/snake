@@ -2,9 +2,10 @@
 
 import pygame
 
-from config import clock, screen, SPEED
-from game_control import handle_keys
-from objects_for_game import Apple, Snake
+from app.config import clock, screen, SPEED
+from app.game_control import handle_keys
+from app.objects_for_game import Apple, Snake
+from app.logic_object_interaction import snake_ate_apple
 
 pygame.init()
 
@@ -22,7 +23,7 @@ def start_and_play_game() -> None:
         handle_keys(snake)
         snake.update_direction()
         pygame.display.flip()
-        snake.eating(apple)
+        snake_ate_apple(apple=apple, snake=snake)
 
 
 if __name__ == '__main__':

@@ -24,7 +24,9 @@ GAME_FIELD: list[tuple[int, int]] = [
     (x * GRID_SIZE, y * GRID_SIZE)
     for x in range(SCREEN_WIDTH_IN_GRID) for y in range(SCREEN_HEIGHT_IN_GRID)
 ]
-"""Генератор для определения всех координат игрового поля."""
+"""Все координаты игрового поля."""
+LINE_THICKNESS: int = 1
+"""Толщина линии-окантовки для объектов игры"""
 
 START_POSITION: tuple[int, int] = (
     SCREEN_WIDTH_IN_GRID // 2 * GRID_SIZE,
@@ -61,10 +63,13 @@ class Color:
     """Цвет линий в RGB."""
 
 
+NAME_WINDOW: str = 'Змейка'
+"""Название окна с игрой."""
+
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), 0, 320)
 """Настройки игрового окна."""
 
-pygame.display.set_caption('Змейка')
+pygame.display.set_caption(NAME_WINDOW)
 """Заголовок окна игрового поля."""
 
 clock = pygame.time.Clock()
@@ -72,3 +77,8 @@ clock = pygame.time.Clock()
 
 SPEED: int = 20
 """Скорость движения Змейки."""
+
+X: int = 0
+"""Для обозначения первого индекса кортежа с координатами."""
+Y: int = 1
+"""Для обозначения второго индекса кортежа с координатами."""
